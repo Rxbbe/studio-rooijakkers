@@ -1,4 +1,4 @@
-# Studio Rooijakkers — v0
+# Rooijakkers Digital — v0
 
 Open `index.html` in any browser. Geen build, geen dependencies.
 
