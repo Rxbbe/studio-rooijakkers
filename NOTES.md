@@ -37,7 +37,11 @@ Alle kleuren staan als CSS-variabelen bovenaan `index.html`. Wijzig daar, nergen
 3. **Echte gegevens** — ingevuld op twee na:
    - ✅ e-mail `robbe.rooijakkers@gmail.com`, telefoon `+32 487 29 45 02`, regio Limburg
    - ✅ BTW-regel verwijderd (nog geen KBO-inschrijving)
-   - ⬜ **foto** — de 4:5 placeholder staat er nog; vervang door een echte foto
+   - ✅ **foto** — `assets/robbe-rooijakkers.jpg`, bijgesneden tot 4:5 (560×700).
+     Er staat een lichte warme correctie op via CSS (`filter:saturate(.9) sepia(.12)`
+     op `.portrait--photo img`); die ene regel weghalen geeft de originele kleuren.
+     De bron was een gecomprimeerde kopie van 1200 px breed — stuur de originele
+     foto door als je hem scherper wil op een retina-scherm.
    - ⬜ **ondernemingsnummer** — zodra je bij de KBO ingeschreven bent, moet dit
      wettelijk terug op de site. De footer is de plek; de regel stond er al en is
      nu weg, dus die kan er zo weer in.

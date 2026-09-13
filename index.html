@@ -388,6 +388,14 @@ html.js .stg.in > .step::before{ transform:scaleX(1); }
   display:grid; place-items:center; text-align:center;
   font-size:12px; letter-spacing:.1em; text-transform:uppercase; color:var(--text-soft);
 }
+/* variant met echte foto: geen arcering, beeld vult het kader */
+.portrait--photo{ display:block; overflow:hidden; background:var(--surface); }
+.portrait--photo img{
+  width:100%; height:100%; object-fit:cover; object-position:50% 35%; display:block;
+  /* lichte warme correctie: de foto is koel avondblauw, de pagina warm bone.
+     Wil je de originele kleuren, verwijder deze ene regel. */
+  filter:saturate(.9) sepia(.12);
+}
 .quote{ font-family:"Newsreader",serif; font-style:italic; font-size:clamp(1.35rem,2.4vw,1.85rem); line-height:1.35; max-width:24ch; color:var(--text); }
 
 /* intake */
@@ -748,7 +756,10 @@ html.js .lang-swap [data-i18n], html.js .lang-swap [data-i18n-html]{
 <!-- ══════════ OVER MIJ ══════════ -->
 <section id="over">
   <div class="wrap about rv">
-    <div class="portrait">foto van Robbe<br>4:5</div>
+    <div class="portrait portrait--photo">
+      <img src="assets/robbe-rooijakkers.jpg" width="560" height="700"
+           alt="Portret van Robbe Rooijakkers" loading="lazy" decoding="async">
+    </div>
     <div>
       <p class="eyebrow" data-i18n="about.eyebrow">Over mij</p>
       <p class="quote" data-i18n="about.quote">Een goede website is niet goed omdat hij mooi is. Hij is goed omdat je klanten vinden waarvoor ze kwamen.</p>
