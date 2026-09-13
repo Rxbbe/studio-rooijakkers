@@ -34,13 +34,13 @@ Alle kleuren staan als CSS-variabelen bovenaan `index.html`. Wijzig daar, nergen
    kinesist: online afspraken; restaurant: menukaart + reserveren).
    De bakkerij staat er al volledig in als sjabloon.
 
-3. **Echte gegevens invullen** — zoek op deze placeholders en vervang ze:
-   - `hallo@rooijakkers.be` (2×, plus in de footer)
-   - `+32 (0)4xx xx xx xx`
-   - `BTW BE 0xxx.xxx.xxx`
-   - `[jouw regio]` in "Over mij"
-   - de twee alinea's in "Over mij" + de zichtbare `[ Vervang ... ]`-regel
-   - de foto-placeholder (4:5) door een echte foto van jezelf
+3. **Echte gegevens** — ingevuld op twee na:
+   - ✅ e-mail `robbe.rooijakkers@gmail.com`, telefoon `+32 487 29 45 02`, regio Limburg
+   - ✅ BTW-regel verwijderd (nog geen KBO-inschrijving)
+   - ⬜ **foto** — de 4:5 placeholder staat er nog; vervang door een echte foto
+   - ⬜ **ondernemingsnummer** — zodra je bij de KBO ingeschreven bent, moet dit
+     wettelijk terug op de site. De footer is de plek; de regel stond er al en is
+     nu weg, dus die kan er zo weer in.
 
 4. **Voor livegang** — favicon, `og:image` voor deelbaarheid, en een
    privacyverklaring (verplicht zodra het formulier persoonsgegevens verzamelt, GDPR).
