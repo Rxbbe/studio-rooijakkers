@@ -1,0 +1,17 @@
+# Agent-skills die per ongeluk in deze map zijn geïnstalleerd
+.agents/
+.claude/
+skills-lock.json
+
+# OS
+Thumbs.db
+desktop.ini
+.DS_Store
+
+# Editor
+.vscode/
+*.code-workspace
+
+# Logs en tijdelijke bestanden
+*.log
+node_modules/
