@@ -21,13 +21,10 @@ Alle kleuren staan als CSS-variabelen bovenaan `index.html`. Wijzig daar, nergen
 
 ## Wat nog moet gebeuren (v1)
 
-1. **Formulier koppelen.** Nu vangt JavaScript de submit op en toont enkel de
-   bedanktboodschap — er vertrekt nog geen mail. Kies één van:
-   - **Formspree** — maak een form aan, zet `action="https://formspree.io/f/JOUW_ID"`
-     en `method="post"`, en verwijder de `e.preventDefault()`-handler onderaan.
-   - **Netlify Forms** — host op Netlify, voeg `netlify` en `name="intake"` toe aan
-     de `<form>`, en verwijder dezelfde handler.
-   Test daarna met een echte inzending naar je eigen mailbox.
+1. **Formulier.** Het formulier opent nu een ingevulde e-mail naar
+   `robbe.rooijakkers@gmail.com`. De bezoeker moet in het mailprogramma nog op
+   Verzenden klikken. Voor verzending zonder mailprogramma kan later een
+   Formspree-endpoint worden toegevoegd.
 
 2. **Drie voorbeeldconcepten afwerken** — loodgieter, kinesist, restaurant.
    Elk krijgt een eigen palet en eigen prioriteit (loodgieter: grote belknop;

@@ -784,8 +784,7 @@ html.js .lang-swap [data-i18n], html.js .lang-swap [data-i18n-html]{
     </div>
 
     <div class="rv">
-      <!-- ROBBE: vervang action="#" door je Formspree- of Netlify-endpoint. Zie NOTES.md. -->
-      <form id="intake" action="#" method="post" novalidate>
+      <form id="intake" action="mailto:robbe.rooijakkers@gmail.com" method="post" enctype="text/plain" novalidate>
         <div class="two">
           <div class="field"><label for="f-naam" data-i18n="f.name">Je naam</label><input id="f-naam" name="naam" type="text" required autocomplete="name"></div>
           <div class="field"><label for="f-zaak" data-i18n="f.biz">Naam van je zaak</label><input id="f-zaak" name="zaak" type="text" autocomplete="organization"></div>
@@ -825,8 +824,8 @@ html.js .lang-swap [data-i18n], html.js .lang-swap [data-i18n-html]{
       </form>
 
       <div class="success" id="ok">
-        <h3 data-i18n="ok.t">Bedankt — het is verstuurd.</h3>
-        <p style="margin:var(--s2) 0 0" data-i18n="ok.p">Ik bekijk je bericht en laat binnen één werkdag iets weten.</p>
+        <h3 data-i18n="ok.t">Je mailprogramma is geopend.</h3>
+        <p style="margin:var(--s2) 0 0" data-i18n="ok.p">Controleer je concept en klik daar nog op Verzenden.</p>
       </div>
     </div>
   </div>
@@ -892,7 +891,7 @@ var EN = {
   "f.msg":"Tell me briefly about your business","f.when":"When should I call?",
   "f.w0":"Doesn't matter","f.w1":"Morning","f.w2":"Afternoon","f.w3":"Evening","f.w4":"Rather by email",
   "f.send":"Send — no obligation","f.note":"You'll hear back within one working day. No sales pitch, no newsletter.",
-  "ok.t":"Thanks — that's sent.","ok.p":"I'll read your message and get back to you within one working day."
+  "ok.t":"Your email app is open.","ok.p":"Check the draft and click Send there to finish."
 };
 
 var NL = {};
@@ -1212,10 +1211,27 @@ document.getElementById("replay").addEventListener("click", function(){
   setTimeout(function(){ playHero(); observe(); }, 420);
 });
 
-/* ── formulier (v0: enkel client-side) ────────────────── */
+/* ── formulier: opent een ingevulde e-mail in het standaard mailprogramma ── */
 document.getElementById("intake").addEventListener("submit", function(e){
   e.preventDefault();
   if(!this.checkValidity()){ this.reportValidity(); return; }
+
+  var data = new FormData(this);
+  var needs = data.getAll("nodig").join(", ");
+  var subject = "Website-aanvraag van " + data.get("naam");
+  var body = [
+    "Naam: " + data.get("naam"),
+    "Zaak: " + (data.get("zaak") || "-"),
+    "E-mail: " + data.get("email"),
+    "Telefoon: " + (data.get("telefoon") || "-"),
+    "Nodig: " + (needs || "-"),
+    "Wanneer bellen: " + data.get("moment"),
+    "",
+    "Bericht:",
+    data.get("bericht") || "-"
+  ].join("\\n");
+  window.location.href = "mailto:robbe.rooijakkers@gmail.com?subject=" +
+    encodeURIComponent(subject) + "&body=" + encodeURIComponent(body);
   this.classList.add("sent");
   document.getElementById("ok").classList.add("on");
   window.scrollTo({ top: document.getElementById("contact").offsetTop - 80, behavior:"smooth" });
