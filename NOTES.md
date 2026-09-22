@@ -21,10 +21,10 @@ Alle kleuren staan als CSS-variabelen bovenaan `index.html`. Wijzig daar, nergen
 
 ## Wat nog moet gebeuren (v1)
 
-1. **Formulier.** Het formulier opent nu een ingevulde e-mail naar
-   `robbe.rooijakkers@gmail.com`. De bezoeker moet in het mailprogramma nog op
-   Verzenden klikken. Voor verzending zonder mailprogramma kan later een
-   Formspree-endpoint worden toegevoegd.
+1. **Formulier.** Het formulier verstuurt via FormSubmit naar
+   `robbe.rooijakkers@gmail.com`. Bij de eerste echte inzending moet je de
+   activatiemail van FormSubmit bevestigen; daarna komen nieuwe aanvragen
+   rechtstreeks binnen.
 
 2. **Drie voorbeeldconcepten afwerken** — loodgieter, kinesist, restaurant.
    Elk krijgt een eigen palet en eigen prioriteit (loodgieter: grote belknop;

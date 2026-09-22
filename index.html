@@ -509,6 +509,7 @@ fieldset{ border:0; padding:0; margin:0 0 var(--s4); }
 .chip input:focus-visible + span{ outline:2px solid var(--accent); outline-offset:2px; }
 
 .formnote{ font-size:14px; color:var(--text-soft); margin:var(--s3) 0 0; }
+.hp-field{ position:absolute; left:-9999px; width:1px; height:1px; opacity:0; pointer-events:none; }
 .success{
   display:none; border:1px solid var(--accent); border-radius:var(--r-card);
   padding:var(--s4); background:var(--surface);
@@ -784,7 +785,10 @@ html.js .lang-swap [data-i18n], html.js .lang-swap [data-i18n-html]{
     </div>
 
     <div class="rv">
-      <form id="intake" action="mailto:robbe.rooijakkers@gmail.com" method="post" enctype="text/plain" novalidate>
+      <form id="intake" action="https://formsubmit.co/robbe.rooijakkers@gmail.com" method="post" novalidate>
+        <input type="hidden" name="_subject" value="Nieuwe website-aanvraag">
+        <input type="hidden" name="_captcha" value="false">
+        <input type="text" name="_honey" tabindex="-1" autocomplete="off" aria-hidden="true" class="hp-field">
         <div class="two">
           <div class="field"><label for="f-naam" data-i18n="f.name">Je naam</label><input id="f-naam" name="naam" type="text" required autocomplete="name"></div>
           <div class="field"><label for="f-zaak" data-i18n="f.biz">Naam van je zaak</label><input id="f-zaak" name="zaak" type="text" autocomplete="organization"></div>
@@ -824,8 +828,8 @@ html.js .lang-swap [data-i18n], html.js .lang-swap [data-i18n-html]{
       </form>
 
       <div class="success" id="ok">
-        <h3 data-i18n="ok.t">Je mailprogramma is geopend.</h3>
-        <p style="margin:var(--s2) 0 0" data-i18n="ok.p">Controleer je concept en klik daar nog op Verzenden.</p>
+        <h3 data-i18n="ok.t">Bedankt — je aanvraag is verzonden.</h3>
+        <p style="margin:var(--s2) 0 0" data-i18n="ok.p">Ik bekijk je bericht en laat binnen één werkdag iets weten.</p>
       </div>
     </div>
   </div>
@@ -891,7 +895,7 @@ var EN = {
   "f.msg":"Tell me briefly about your business","f.when":"When should I call?",
   "f.w0":"Doesn't matter","f.w1":"Morning","f.w2":"Afternoon","f.w3":"Evening","f.w4":"Rather by email",
   "f.send":"Send — no obligation","f.note":"You'll hear back within one working day. No sales pitch, no newsletter.",
-  "ok.t":"Your email app is open.","ok.p":"Check the draft and click Send there to finish."
+  "ok.t":"Thanks — your request was sent.","ok.p":"I'll read your message and get back to you within one working day."
 };
 
 var NL = {};
@@ -1211,30 +1215,26 @@ document.getElementById("replay").addEventListener("click", function(){
   setTimeout(function(){ playHero(); observe(); }, 420);
 });
 
-/* ── formulier: opent een ingevulde e-mail in het standaard mailprogramma ── */
+/* ── formulier: verstuurt via FormSubmit ── */
 document.getElementById("intake").addEventListener("submit", function(e){
   e.preventDefault();
-  if(!this.checkValidity()){ this.reportValidity(); return; }
-
-  var data = new FormData(this);
-  var needs = data.getAll("nodig").join(", ");
-  var subject = "Website-aanvraag van " + data.get("naam");
-  var body = [
-    "Naam: " + data.get("naam"),
-    "Zaak: " + (data.get("zaak") || "-"),
-    "E-mail: " + data.get("email"),
-    "Telefoon: " + (data.get("telefoon") || "-"),
-    "Nodig: " + (needs || "-"),
-    "Wanneer bellen: " + data.get("moment"),
-    "",
-    "Bericht:",
-    data.get("bericht") || "-"
-  ].join("\\n");
-  window.location.href = "mailto:robbe.rooijakkers@gmail.com?subject=" +
-    encodeURIComponent(subject) + "&body=" + encodeURIComponent(body);
-  this.classList.add("sent");
-  document.getElementById("ok").classList.add("on");
-  window.scrollTo({ top: document.getElementById("contact").offsetTop - 80, behavior:"smooth" });
+  var form = this;
+  if(!form.checkValidity()){ form.reportValidity(); return; }
+  var submit = form.querySelector("button[type=submit]");
+  submit.disabled = true;
+  fetch(form.action, {
+    method:"POST",
+    body:new FormData(form),
+    headers:{ Accept:"application/json" }
+  }).then(function(response){
+    if(!response.ok) throw new Error("Formulier kon niet worden verstuurd.");
+    form.classList.add("sent");
+    document.getElementById("ok").classList.add("on");
+    window.scrollTo({ top: document.getElementById("contact").offsetTop - 80, behavior:"smooth" });
+  }).catch(function(){
+    submit.disabled = false;
+    alert("Er ging iets mis. Mail rechtstreeks naar robbe.rooijakkers@gmail.com.");
+  });
 });
 
 document.getElementById("yr").textContent = new Date().getFullYear();
