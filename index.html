@@ -465,7 +465,7 @@ html.js .stg.in > .step::before{ transform:scaleX(1); }
 
 /* intake */
 .intake{ background:var(--bone-deep); }
-:root[data-theme="dark"] .intake{ background:#1C1A13; }
+:root[data-theme="dark"] .intake{ background:var(--page); }
 .intake__grid{ display:grid; grid-template-columns:.85fr 1.15fr; gap:var(--s6); align-items:start; }
 @media (max-width:880px){ .intake__grid{ grid-template-columns:1fr; gap:var(--s5); } }
 
@@ -677,7 +677,6 @@ html.js .lang-swap [data-i18n], html.js .lang-swap [data-i18n-html]{
   <div class="wrap nav__in">
     <a class="brand" href="#top">Rooijakkers <span>Digital</span></a>
     <nav class="nav__links">
-      <a href="#werk"      data-i18n="nav.work">Voorbeelden</a>
       <a href="#krijg"     data-i18n="nav.gets">Wat je krijgt</a>
       <a href="#werkwijze" data-i18n="nav.how">Hoe het werkt</a>
       <a href="#over"      data-i18n="nav.about">Over mij</a>
@@ -693,10 +692,7 @@ html.js .lang-swap [data-i18n], html.js .lang-swap [data-i18n-html]{
 
 <!-- ══════════ HERO ══════════ -->
 <section class="hero" id="top">
-  <!-- Achtergrond: hier komt later de video of grote foto.
-       Tot dan een eerlijke, bewust vormgegeven plaatshouder. -->
   <div class="hero__bg" aria-hidden="true">
-    <div class="hero__ph"><span>hero-beeld 16:9 — nog te maken</span></div>
     <div class="hero__veil"></div>
   </div>
   <div class="wrap stg" id="heroIn">
@@ -705,7 +701,6 @@ html.js .lang-swap [data-i18n], html.js .lang-swap [data-i18n-html]{
     <p class="lede" data-i18n="hero.lede">Ik bouw heldere, snelle websites voor lokale zaken in Limburg. Geen jargon, geen abonnement waar je niet uit raakt — gewoon een site waar klanten je vinden, bellen en boeken.</p>
     <div class="cta">
       <a class="btn btn--accent btn--arrow" href="#contact"><span data-i18n="hero.cta1">Plan een gesprek</span><i aria-hidden="true">→</i></a>
-      <a class="btn btn--ghost btn--arrow" href="#werk"><span data-i18n="hero.cta2">Bekijk de voorbeelden</span><i aria-hidden="true">→</i></a>
     </div>
     <div class="hero__meta">
       <div><b data-i18n="hero.m1b">Vaste prijs</b><span data-i18n="hero.m1">Je weet vooraf wat het kost. Geen uurtje-factuurtje.</span></div>
@@ -716,81 +711,6 @@ html.js .lang-swap [data-i18n], html.js .lang-swap [data-i18n-html]{
 </section>
 
 <hr class="rule draw">
-
-<!-- ══════════ VOORBEELDEN ══════════ -->
-<section id="werk">
-  <div class="wrap">
-    <div class="shead rv">
-      <div>
-        <p class="eyebrow" data-i18n="work.eyebrow">Voorbeelden</p>
-        <h2 data-i18n-html="work.h2">Zo zou jouw zaak <em class="hl">eruit kunnen zien</em>.</h2>
-        <p class="lede" data-i18n="work.lede">Dit zijn concepten die ik zelf ontwierp — geen echte klanten. Ik start net, dus ik toon je liever eerlijk werk dan valse logo's. Kies een type zaak:</p>
-      </div>
-    </div>
-
-    <div class="tabs" role="tablist" aria-label="Voorbeeldconcepten">
-      <button class="tab" role="tab" aria-selected="true"  aria-controls="p-bakkerij"   id="t-bakkerij"   data-i18n="work.t1">Bakkerij</button>
-      <button class="tab" role="tab" aria-selected="false" aria-controls="p-loodgieter" id="t-loodgieter" data-i18n="work.t2">Loodgieter</button>
-      <button class="tab" role="tab" aria-selected="false" aria-controls="p-kine"       id="t-kine"       data-i18n="work.t3">Kinesist</button>
-      <button class="tab" role="tab" aria-selected="false" aria-controls="p-resto"      id="t-resto"      data-i18n="work.t4">Restaurant</button>
-    </div>
-
-    <div class="panels" id="panels">
-    <!-- bakkerij: volledig uitgewerkt -->
-    <div class="panel" role="tabpanel" id="p-bakkerij" aria-labelledby="t-bakkerij">
-      <div class="frame">
-        <div class="frame__bar">
-          <div class="frame__dots"><i></i><i></i><i></i></div>
-          <div class="frame__url">degoudenkorst.be</div>
-        </div>
-        <div class="frame__body">
-          <div class="mini mini--bakkerij">
-            <div class="mini__nav">
-              <div class="mini__logo">De Gouden Korst</div>
-              <a href="#werk">Ons brood</a><a href="#werk">Bestellen</a><a href="#werk">Openingsuren</a><a href="#werk">Contact</a>
-            </div>
-            <div class="mini__hero">
-              <div>
-                <h4>Elke ochtend vers uit de oven, om 6u.</h4>
-                <p>Ambachtelijk brood en patisserie in hartje Mechelen. Bestel je zuurdesem online en haal het warm af.</p>
-                <span class="mini__btn">Bestel je brood →</span>
-              </div>
-              <div class="ph ph--hero">foto 4:3</div>
-            </div>
-            <div class="mini__row">
-              <div class="mini__card"><b>Zuurdesem</b><span>48 uur gerezen, korst van goud.</span></div>
-              <div class="mini__card"><b>Patisserie</b><span>Verse taarten op bestelling.</span></div>
-              <div class="mini__card"><b>Broodautomaat</b><span>24/7 vers brood aan de deur.</span></div>
-            </div>
-            <div class="mini__strip">
-              <span><b>Ma–za</b> 6u–18u</span><span><b>Zo</b> 7u–13u</span>
-              <span><b>015 12 34 56</b></span><span>Bruul 22, 2800 Mechelen</span>
-            </div>
-          </div>
-        </div>
-      </div>
-      <p class="concept-tag" data-i18n="work.tag">Voorbeeldconcept — geen echte klant</p>
-    </div>
-
-    <!-- nog te bouwen in v1 -->
-    <div class="panel" role="tabpanel" id="p-loodgieter" aria-labelledby="t-loodgieter" hidden>
-      <div class="frame"><div class="frame__bar"><div class="frame__dots"><i></i><i></i><i></i></div><div class="frame__url">installatie-vermeulen.be</div></div>
-      <div class="soon"><div><strong>Loodgieter</strong>Volgt in de volgende versie — eigen palet, grote belknop, “binnen 24u ter plaatse”.</div></div></div>
-      <p class="concept-tag" data-i18n="work.tag">Voorbeeldconcept — geen echte klant</p>
-    </div>
-    <div class="panel" role="tabpanel" id="p-kine" aria-labelledby="t-kine" hidden>
-      <div class="frame"><div class="frame__bar"><div class="frame__dots"><i></i><i></i><i></i></div><div class="frame__url">praktijk-maes.be</div></div>
-      <div class="soon"><div><strong>Kinesist</strong>Volgt in de volgende versie — rustig salie-palet, online afspraken, terugbetaling mutualiteit.</div></div></div>
-      <p class="concept-tag" data-i18n="work.tag">Voorbeeldconcept — geen echte klant</p>
-    </div>
-    <div class="panel" role="tabpanel" id="p-resto" aria-labelledby="t-resto" hidden>
-      <div class="frame"><div class="frame__bar"><div class="frame__dots"><i></i><i></i><i></i></div><div class="frame__url">osteria-bocca.be</div></div>
-      <div class="soon"><div><strong>Restaurant</strong>Volgt in de volgende versie — donker palet, menukaart, reserveren in twee kliks.</div></div></div>
-      <p class="concept-tag" data-i18n="work.tag">Voorbeeldconcept — geen echte klant</p>
-    </div>
-    </div>
-  </div>
-</section>
 
 <!-- ══════════ WAT JE KRIJGT ══════════ -->
 <section id="krijg">
@@ -937,18 +857,14 @@ html.js .lang-swap [data-i18n], html.js .lang-swap [data-i18n-html]{
 <script>
 /* ── i18n ─────────────────────────────────────────────── */
 var EN = {
-  "nav.work":"Examples","nav.gets":"What you get","nav.how":"How it works","nav.about":"About","nav.cta":"Book a call",
+  "nav.gets":"What you get","nav.how":"How it works","nav.about":"About","nav.cta":"Book a call",
   "hero.eyebrow":"Available for new projects",
   "hero.h1":"Websites that<br>bring <em class=\"hl\">customers in</em>",
   "hero.lede":"I build clear, fast websites for local businesses in Limburg. No jargon, no subscription you can't escape — just a site where customers find you, call you and book you.",
-  "hero.cta1":"Book a call","hero.cta2":"See the examples",
+  "hero.cta1":"Book a call",
   "hero.m1b":"Fixed price","hero.m1":"You know the cost up front. No hourly surprises.",
   "hero.m2b":"Live in 2–4 weeks","hero.m2":"From first conversation to online.",
   "hero.m3b":"Explained in plain language","hero.m3":"You don't need to know any tech. That's my job.",
-  "work.eyebrow":"Examples","work.h2":"This is how your business <em class=\"hl\">could look</em>.",
-  "work.lede":"These are concepts I designed myself — not real clients. I'm just starting out, so I'd rather show you honest work than fake logos. Pick a type of business:",
-  "work.t1":"Bakery","work.t2":"Plumber","work.t3":"Physio","work.t4":"Restaurant",
-  "work.tag":"Example concept — not a real client",
   "gets.eyebrow":"What you get","gets.h2":"Everything handled. <em class=\"hl\">Including the boring parts.</em>",
   "g1.t":"Perfect on mobile","g1.p":"Eight in ten people will see your site on a phone. That's where I start, not where I patch.",
   "g2.t":"Found on Google","g2.p":"Local SEO and your Google Business Profile set up properly, so you show up for “bakery near me”.",
